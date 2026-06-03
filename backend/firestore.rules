@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Anyone can check if Admin exists, so the signup dropdown hides correctly
+    match /settings/roles {
+      allow read, write: if true; 
+    }
+    
+    // Everything else requires the user to be logged in
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

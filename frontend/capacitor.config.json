@@ -1,0 +1,6 @@
+{
+  "appId": "com.ccert.app",
+  "appName": "CCERT",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}
